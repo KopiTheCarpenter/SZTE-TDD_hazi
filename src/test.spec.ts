@@ -32,4 +32,8 @@ describe('Handle shouting (when the name is full uppercase).', function () {
     result = greeter.greets(['JAY', 'Maya', 'Alice', 'BOB', 'Charlotte']);
     expect(result).toBe('Hello, Maya, Alice, and Charlotte. AND HELLO JAY, AND BOB!');
   });
+  it('Mixed input: Separates the response into two greetings. More shouts.', function () {
+    result = greeter.greets(['JAY', 'Maya', 'Alice', 'BOB', 'Charlotte','BARRY']);
+    expect(result).toBe('Hello, Maya, Alice, and Charlotte. AND HELLO JAY, BOB, AND BARRY!');
+  });
 });
