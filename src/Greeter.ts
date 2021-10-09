@@ -17,7 +17,18 @@ export class Greeter{
         ret +=inputNames[inputNames.length-1]+'!';
         return ret;
     }
+    private inputSplitter(inputNames:String[]):String[]{
+        let ret:String[] =[];
+        inputNames.forEach(name => {
+            let splitNames:String[] =name.split(',');
+            splitNames.forEach(splitname => {
+                ret.push(splitname.trim());
+            });
+        });
+        return ret;
+    }
     public greets(inputNames:String[]):String{
+        inputNames = this.inputSplitter(inputNames);
         if(inputNames.length ==0)return 'Hello, my friend.';
         if(inputNames.length ==1){
             if(inputNames[0].toUpperCase()==inputNames[0]){
