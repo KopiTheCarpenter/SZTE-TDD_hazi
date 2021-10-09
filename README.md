@@ -3,3 +3,5 @@
 Handle a single input, multiple inputs, and no input.
 ## Part 2
 Handle shouting (when the name is full uppercase).
+## Part 3
+Split names with commas.
