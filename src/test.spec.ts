@@ -37,3 +37,21 @@ describe('Handle shouting (when the name is full uppercase).', function () {
     expect(result).toBe('Hello, Maya, Alice, and Charlotte. AND HELLO JAY, BOB, AND BARRY!');
   });
 });
+
+describe('Split names with commas.', function () {
+  let greeter:Greeter = new Greeter;
+  let result:String;
+  it('If an entry in the input contains commas, split it into multiple entries.', function () {
+    result = greeter.greets(['Jerry', 'Alice, Bob']);
+    expect(result).toBe('Hello, Jerry, Alice, and Bob.');
+  });
+
+  it('If an entry in the input contains commas, split it into multiple entries. Shouting works.', function () {
+    result = greeter.greets(['Jerry, BARRY', 'Alice, Bob']);
+    expect(result).toBe('Hello, Jerry, Alice, and Bob. AND HELLO BARRY!');
+  });
+  it('If an entry in the input contains commas, split it into multiple entries. Multiple shouting works.', function () {
+    result = greeter.greets(['Jerry, BARRY', 'Alice, Bob', 'MAYA, Charlotte, Jake']);
+    expect(result).toBe('Hello, Jerry, Alice, Bob, Charlotte, and Jake. AND HELLO BARRY, AND MAYA!');
+  });
+});
